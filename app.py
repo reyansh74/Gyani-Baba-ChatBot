@@ -4,7 +4,7 @@ import streamlit as st
 
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.output_parser import StrOutputParser
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 
 # Load environment variables
 load_dotenv()
@@ -22,14 +22,13 @@ prompt = ChatPromptTemplate.from_messages([
     ("user", "{question}")
 ])
 
-# Function to generate response from Gemini
+# Function to generate response from Groq (free, fast open-source models)
 def generate_response(question, temperature, max_tokens, api_key):
-    os.environ["GOOGLE_API_KEY"] = api_key
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-pro",
+    llm = ChatGroq(
+        model="llama-3.1-8b-instant",
         temperature=temperature,
         max_tokens=max_tokens,
-        google_api_key=api_key
+        groq_api_key=api_key
     )
 
     output_parser = StrOutputParser()
@@ -41,11 +40,11 @@ st.title("Gyani Baba 🧙‍♂️")
 st.write("Gyani Baba se poocho.")
 
 # Sidebar: API key input
-api_key = st.sidebar.text_input("Enter your Gemini API key", type="password")
+api_key = st.sidebar.text_input("Enter your Groq API key (free at groq.com)", type="password")
 
 # Sidebar: Sliders
 temperature = st.sidebar.slider("Select temperature", 0.0, 1.0, 0.7)
-max_tokens = st.sidebar.slider("Select max tokens", 50, 1024, 256)
+max_tokens = st.sidebar.slider("Select max tokens", 50, 1024, 150)
 
 # Input box
 user_input = st.text_area("Tumhara sawaal yahan likho...")
@@ -53,7 +52,7 @@ user_input = st.text_area("Tumhara sawaal yahan likho...")
 # Handle response
 if user_input:
     if not api_key:
-        st.warning("Please enter your Gemini API key.")
+        st.warning("Please enter your Groq API key (get it free at console.groq.com).")
     else:
         with st.spinner("Gyani Baba soch rahe hain..."):
             try:

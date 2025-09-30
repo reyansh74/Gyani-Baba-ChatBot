@@ -4,11 +4,4 @@ python-dotenv
 streamlit
 langchain_community
 langchain_core
-langchain_google_genai
-ipykernel
-langchain
-langchain_community
-langchain_core
-langchain_google_genai
-python-dotenv
-streamlit
+langchain-groq
