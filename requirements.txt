@@ -5,3 +5,5 @@ streamlit
 langchain_community
 langchain_core
 langchain-groq
+langchain-google-genai
+google-generativeai
