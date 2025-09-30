@@ -10,9 +10,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
 
 # Optional LangSmith setup (safe to leave even if unused)
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = "Q&A Chatbot"
+langchain_api_key = os.getenv("LANGCHAIN_API_KEY")
+if langchain_api_key:
+    os.environ["LANGCHAIN_API_KEY"] = langchain_api_key
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGCHAIN_PROJECT"] = "Q&A Chatbot"
 
 # Prompt template
 prompt = ChatPromptTemplate.from_messages([
