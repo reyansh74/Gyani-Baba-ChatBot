@@ -4,11 +4,12 @@ python-dotenv==1.0.1
 tqdm==4.67.1
 
 # LangChain ecosystem
-langchain==0.2.17
-langchain-core==0.2.43
-langchain-community==0.2.17
+langchain>=0.3.37,<0.4.0
+langchain-core>=0.3.37,<0.4.0
+langchain-community>=0.3.37,<0.4.0
 langchain-google-genai==2.0.10
-langchain-groq==0.3.8
+langchain-groq>=0.4.0  # match major version
+
 
 # Google + Groq SDKs
 google-generativeai==0.8.5
