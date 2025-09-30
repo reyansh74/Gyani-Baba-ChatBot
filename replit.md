@@ -36,3 +36,5 @@ This is a Streamlit-based chatbot application that uses LangChain and Google Gem
   - Created Streamlit config to allow all hosts and bind to 0.0.0.0:5000
   - Updated .gitignore with Python-specific patterns
   - Configured workflow for the Streamlit app
+  - Fixed LangChain API key handling to prevent None assignment errors
+  - Changed AI model from gemini-1.5-flash to gemini-1.5-pro
