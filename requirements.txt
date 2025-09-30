@@ -1,9 +1,18 @@
-langchain
-ipykernel
-python-dotenv
-streamlit
-langchain_community
-langchain_core
-langchain-groq
-langchain-google-genai
-google-generativeai
+# Core
+streamlit==1.32.0
+python-dotenv==1.0.1
+tqdm==4.67.1
+
+# LangChain ecosystem
+langchain==0.2.16
+langchain-core==0.2.38
+langchain-community==0.2.17
+langchain-google-genai==2.0.10
+langchain-groq==0.3.8
+
+# Google + Groq SDKs
+google-generativeai==0.8.5
+groq==0.32.0
+
+# Utilities
+protobuf==5.29.5
